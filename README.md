@@ -20,6 +20,10 @@ O desafio foi elaborar um projeto do início ao fim, implementando todas as func
 
 ## Telas:
 
+Login:
+
+![Login](Screens/Login.PNG)
+
 Tela Inicial:
 
 ![Tela Inicial](Screens/Home.PNG)
@@ -50,7 +54,7 @@ Para executar a aplicação, certifique-se de ter o Python e o MySQL instalados 
 2. Instale as dependências do projeto:
    - pip install -r requirements.txt
 
-3. Acesse o MySQL. Crie seu banco de dados e execute o script da pasta "database_scripts" para criação das tabelas. Há duas opções:
+3. Acesse o MySQL. Crie seu banco de dados (schema) e execute o script da pasta "database_scripts" para criação das tabelas. Há duas opções:
    - create_tables - structure_only.sql (somente criação das tabelas);
    - create_tables - structure_and_some_data.sql (criação das tabelas e inserção de alguns dados para teste)
 
