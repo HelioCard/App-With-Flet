@@ -16,10 +16,10 @@ class Config:
         self.user_name = None
         self.permission = None
 
-    def file_exists(self, file):
-        if os.path.exists(file):
-            return True
-        return False
+        self.company_name = "NOME DA SUA EMPRESA"
+        self.company_adress = "Endereço completo da sua Empresa aqui"
+        self.company_tel = "Telefone da sua Empresa aqui"
+        self.company_email = "E-mail da sua Empresa aqui"
 
     def read_file(self):
         with open("data.bin", "rb") as file:
@@ -54,7 +54,7 @@ class Config:
         self.route.page.update()
 
     def initialize(self):
-        if self.file_exists("data.bin"):
+        if os.path.exists("data.bin"):
             readed_data, readed_key = self.read_file()
             decrypted_data = self.decrypt_data(readed_data, readed_key)
             config_dict = json.loads(decrypted_data)

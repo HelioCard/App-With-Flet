@@ -57,7 +57,7 @@ class InfostoreApp:
             "/sales": self.sales,
             "/register_sales": self.register_sales,
         }
-        
+
         # Creates dict of method to initialize the Views:
         self.calls = {
             "/": self.login.initialize,
@@ -81,7 +81,7 @@ class InfostoreApp:
                 self.container,
             ]
         )
-        
+
         # Create configs
         self.config = Config(self)
 

@@ -362,7 +362,7 @@ class Sales(UserControl):
         return data
     
     def get_header_data(self):
-        return ["EMPRESA TESTE ABC", "Rua do Abecedário, 1000, Vila das Letras, Letrario/SP", "(99) 99999 9999", "letras@abc.com"]
+        return [self.route.config.company_name, self.route.config.company_adress, self.route.config.company_tel, self.route.config.company_email]
     
     def get_sale_data(self):
         return [self.tf_id_sale.value, self.tf_date.value]

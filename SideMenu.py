@@ -1,8 +1,9 @@
 from flet import (UserControl, Container, IconButton, icons, NavigationRail, NavigationRailLabelType,
                   NavigationRailDestination, Icon, padding, border_radius)
 
+from SetGeneralConfig import SetGeneralConfig
+
 class SideMenu(UserControl):
-    ext = False
     def __init__(self, route):
         super().__init__()
         self.route = route
@@ -14,7 +15,7 @@ class SideMenu(UserControl):
             visible=False,
         )        
         self.nnrail = NavigationRail(
-            extended=self.ext,
+            extended=False,
             label_type=NavigationRailLabelType.NONE,
             min_width=56,                
             min_extended_width=160, 
@@ -41,6 +42,7 @@ class SideMenu(UserControl):
                 #     icon=icons.SETTINGS_OUTLINED, selected_icon_content=Icon(icons.SETTINGS), label='Configurações',
                 # ),
             ],
+            trailing=IconButton(icon=icons.SETTINGS, on_click=self.show_config_page),
             on_change=self.nav_clicked,
         )  
         self.cont.content=self.nnrail
@@ -50,7 +52,6 @@ class SideMenu(UserControl):
 
     def menu_clicked(self, e):
         self.nnrail.extended = not self.nnrail.extended        
-        self.ext = self.nnrail.extended
         self.update()
 
     def nav_clicked(self, e):
@@ -83,4 +84,10 @@ class SideMenu(UserControl):
             self.route.bar.set_title('Vendas')
             self.route.page.update()
             self.update()
+
+    def show_config_page(self, e):
+        dialog = SetGeneralConfig(self.route)
+        self.route.page.dialog = dialog
+        dialog.open = True
+        self.route.page.update()
 
